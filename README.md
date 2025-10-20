@@ -1,29 +1,30 @@
 
-Telebot Routers 🤖
+Telebot routers 🤖
 
 Powerful Router System for Sync and Async Telegram Bots
 
+
 🚀 Features
 
-· ✅ Sync & Async Support - TeleBot and AsyncTeleBot
-· ✅ Global Routers - Same handlers for multiple bots
-· ✅ Simple Routers - Dedicated handlers for single bot
-· ✅ Advanced Filters - Command, Text, IsAdmin and more
-· ✅ Modular Design - Clean file structure
-· ✅ Full Documentation - Examples for every method
+- ✅ Sync & Async Support - TeleBot and AsyncTeleBot
+- ✅ Global Routers - Same handlers for multiple bots
+- ✅ Simple Routers - Dedicated handlers for single bot
+- ✅ Advanced Filters - Command, Text, IsAdmin and more
+- ✅ Modular Design - Clean file structure
+- ✅ Full Documentation - Examples for every method
 
 📦 Installation
 
 ```bash
-pip install telegram-routers
+pip install telebot-router
 ```
 
 Or from source:
 
 ```bash
-git clone https://github.com/yourusername/telegram-routers.git
-cd telegram-routers
-pip install -e .
+git clone https://github.com/Ergashev2006/telebot-router.git
+cd telebot-router
+pip install - e .
 ```
 
 🎯 Quick Start
@@ -32,7 +33,7 @@ Sync Bot (TeleBot)
 
 ```python
 from telebot import TeleBot
-from telegram_routers import Router, Command
+from telebot_router import Router, Command
 
 bot = TeleBot("YOUR_BOT_TOKEN")
 router = Router("my_bot")
@@ -52,8 +53,8 @@ bot.polling()
 Async Bot (AsyncTeleBot)
 
 ```python
-from telebot import AsyncTeleBot
-from telegram_routers import AsyncRouter, Command
+from telebot.async_telebot import AsyncTeleBot
+from telebot_router import AsyncRouter, Command
 import asyncio
 
 bot = AsyncTeleBot("YOUR_BOT_TOKEN")
@@ -77,7 +78,7 @@ Multiple Sync Bots
 
 ```python
 from telebot import TeleBot
-from telegram_routers import message_handler, register_sync_bot
+from telebot_router import message_handler, register_sync_bot
 
 # Global handler - works for all sync bots
 @message_handler(commands=['start'])
@@ -99,8 +100,8 @@ bot1.polling()
 Multiple Async Bots
 
 ```python
-from telebot import AsyncTeleBot
-from telegram_routers import async_message_handler, register_async_bot
+from telebot.async_telebot import AsyncTeleBot
+from telebot_router import async_message_handler, register_async_bot
 import asyncio
 
 # Global async handler
@@ -126,7 +127,7 @@ asyncio.run(main())
 Command Filter
 
 ```python
-from telegram_routers import Command
+from telebot_router import Command
 
 @router.message_handler(commands=['start', 'help'])
 def command_handler(message, bot):
@@ -136,7 +137,7 @@ def command_handler(message, bot):
 Text Filter
 
 ```python
-from telegram_routers import Text
+from telebot_router import Text
 
 @router.message_handler(func=Text('hello'))
 def text_handler(message, bot):
@@ -146,7 +147,7 @@ def text_handler(message, bot):
 TextContains Filter
 
 ```python
-from telegram_routers import TextContains
+from telebot_router import TextContains
 
 @router.message_handler(func=TextContains(['help', 'support']))
 def contains_handler(message, bot):
@@ -156,7 +157,7 @@ def contains_handler(message, bot):
 IsAdmin Filter
 
 ```python
-from telegram_routers import IsAdmin
+from telebot_router import IsAdmin
 
 ADMIN_IDS = [123456789, 987654321]
 
@@ -168,7 +169,7 @@ def admin_handler(message, bot):
 CallbackData Filter
 
 ```python
-from telegram_routers import CallbackData
+from telebot_router import CallbackData
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 @router.callback_query_handler(func=CallbackData('button1'))
@@ -181,7 +182,7 @@ def callback_handler(call, bot):
 handlers/start.py
 
 ```python
-from telegram_routers import Router, Command
+from telebot_router import Router, Command
 
 router = Router("start_handlers")
 
@@ -193,7 +194,7 @@ def start_handler(message, bot):
 handlers/admin.py
 
 ```python
-from telegram_routers import Router, Command, IsAdmin
+from telebot_router import Router, Command, IsAdmin
 
 router = Router("admin_handlers")
 ADMIN_IDS = [123456789]
@@ -207,7 +208,7 @@ main.py
 
 ```python
 from telebot import TeleBot
-from telegram_routers import Router
+from telebot_router import Router
 from handlers.start import router as start_router
 from handlers.admin import router as admin_router
 
@@ -227,7 +228,7 @@ bot.polling()
 Handler Count
 
 ```python
-from telegram_routers import get_sync_global_stats, get_async_global_stats
+from telebot_router import get_sync_global_stats, get_async_global_stats
 
 # Sync global statistics
 sync_stats = get_sync_global_stats()
@@ -254,7 +255,7 @@ print(f"Callback handlers: {stats['callback_handlers']}")
 Include Routers
 
 ```python
-from telegram_routers import include_sync_router, include_async_router
+from telebot_router import include_sync_router, include_async_router
 
 # Include sync router
 include_sync_router(my_router)
@@ -269,30 +270,16 @@ Clear Handlers
 router.clear_handlers()  # Clear all handlers
 ```
 
-🧪 Testing
 
-Test the library:
-
-```bash
-# Download test files
-git clone https://github.com/yourusername/telegram-routers.git
-cd telegram-routers
-
-# Run tests
-python tests/test_basic.py
-python tests/test_async.py
-python tests/test_filters.py
-python tests/test_global.py
-```
 
 🤝 Contributing
 
 Want to contribute?
 
 1. Fork the repository
-2. Create a new branch (git checkout -b feature/awesome-feature)
-3. Commit your changes (git commit -am 'Add awesome feature')
-4. Push to the branch (git push origin feature/awesome-feature)
+2. Create a new branch (git checkout - b feature/awesome- feature)
+3. Commit your changes (git commit - am 'Add awesome feature')
+4. Push to the branch (git push origin feature/awesome- feature)
 5. Create a Pull Request
 
 📝 License
@@ -303,20 +290,20 @@ This project is licensed under the MIT License. See LICENSE file for details.
 
 If you have questions or need help:
 
-· Email: your.email@example.com
-· Telegram: @username
-· Issues: GitHub Issues
+- Email: o6.javohir.ergashev@gmail.com
+- Telegram: +998947271207
+- Issues: GitHub Issues
 
 🙏 Acknowledgments
 
-· pyTeleBot - Main Telegram Bot library
-· All contributors and testers
+- TeleBot - Main Telegram Bot library
+- All contributors and testers
 
----
+- - - 
 
 ⭐ If you like this project, give it a star!
 
----
+- - - 
 
 🚀 Quick Reference
 
@@ -324,30 +311,30 @@ Imports
 
 ```python
 # Sync
-from telegram_routers import Router, GlobalRouter, message_handler, callback_handler
+from telebot_router import Router, GlobalRouter, message_handler, callback_handler
 
 # Async  
-from telegram_routers import AsyncRouter, AsyncGlobalRouter, async_message_handler, async_callback_handler
+from telebot_router import AsyncRouter, AsyncGlobalRouter, async_message_handler, async_callback_handler
 
 # Filters
-from telegram_routers import Command, Text, TextContains, IsAdmin, CallbackData
+from telebot_router import Command, Text, TextContains, IsAdmin, CallbackData
 
 # Functions
-from telegram_routers import register_sync_bot, register_async_bot, get_sync_global_stats, get_async_global_stats
+from telebot_router import register_sync_bot, register_async_bot, get_sync_global_stats, get_async_global_stats
 ```
 
 Main Methods
 
-· router.message_handler() - Add message handler
-· router.callback_query_handler() - Add callback handler
-· router.include_router() - Include another router
-· router.register() - Register to bot
-· router.get_handler_count() - Get statistics
-· router.clear_handlers() - Clear handlers
+- router.message_handler() - Add message handler
+- router.callback_query_handler() - Add callback handler
+- router.include_router() - Include another router
+- router.register() - Register to bot
+- router.get_handler_count() - Get statistics
+- router.clear_handlers() - Clear handlers
 
 Happy Coding! 🎉
 
----
+- - - 
 
 Telegram Bot Test Code#
 
@@ -357,7 +344,7 @@ Telegram Bot Test Code#
 
 ```python
 from telebot import TeleBot
-from telegram_routers import Router, Command, Text, TextContains, IsAdmin, CallbackData
+from telebot_router import Router, Command, Text, TextContains, IsAdmin, CallbackData
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 import logging
 import time
@@ -492,7 +479,7 @@ def create_test_bot():
     # 8. Admin filter test
     @router.message_handler(func=IsAdmin(ADMIN_IDS), commands=['admin'])
     def admin_test(message, bot):
-        """Test admin-only commands"""
+        """Test admin- only commands"""
         bot.reply_to(message, "👑 **Admin Test Passed!** - You have admin access!", parse_mode='Markdown')
     
     # 9. Lambda filter test
@@ -615,8 +602,8 @@ if __name__ == "__main__":
 2. test_async_bot.py - Async Test Bot
 
 ```python
-from telebot import AsyncTeleBot
-from telegram_routers import AsyncRouter, Command, CallbackData
+from telebot.async_telebot import AsyncTeleBot
+from telebot_router import AsyncRouter, Command, CallbackData
 import asyncio
 import logging
 import time
@@ -706,7 +693,7 @@ if __name__ == "__main__":
 3. test_filters.py - Filter Testing
 
 ```python
-from telegram_routers import Command, Text, TextContains, IsAdmin, CallbackData
+from telebot_router import Command, Text, TextContains, IsAdmin, CallbackData
 from telebot.types import Message, CallbackQuery, User
 import logging
 
@@ -742,7 +729,7 @@ def test_all_filters():
     
     # 3. TextContains filter test
     print("\n3. Testing TextContains Filter...")
-      contains_filter = TextContains(['help', 'support'])
+    contains_filter = TextContains(['help', 'support'])
     test_message.text = "I need help"
     result = contains_filter(test_message)
     print(f"   Contains 'help': {result} ✅" if result else "   ❌ FAILED")
@@ -774,7 +761,7 @@ if __name__ == "__main__":
 
 ```bash
 # Install required packages
-pip install pyTeleBot telegram-routers
+pip install telebot-router
 
 # Get bot token from @BotFather in Telegram
 # Replace "YOUR_BOT_TOKEN_HERE" with your actual token
@@ -797,21 +784,21 @@ python test_filters.py
 
 Send these to your bot:
 
-· /start - Show help and bot info
-· /ping - Test response speed
-· /echo Hello - Echo test
-· /stats - Router statistics
-· /menu - Button tests
-· hello - Text filter test
-· help me - Contains filter test
-· /admin - Admin test (if you're admin)
+- /start - Show help and bot info
+- /ping - Test response speed
+- /echo Hello - Echo test
+- /stats - Router statistics
+- /menu - Button tests
+- hello - Text filter test
+- help me - Contains filter test
+- /admin - Admin test (if you're admin)
 
 ✅ Expected Results
 
-· ✅ All commands should work
-· ✅ Buttons should respond immediately
-· ✅ Statistics should show handler counts
-· ✅ Filters should match correct messages
-· ✅ Async bot should work smoothly
+- ✅ All commands should work
+- ✅ Buttons should respond immediately
+- ✅ Statistics should show handler counts
+- ✅ Filters should match correct messages
+- ✅ Async bot should work smoothly
 
-This test suite covers all Telegram Router features! 🎉
+This test suite covers all Telebot routers features! 🎉
